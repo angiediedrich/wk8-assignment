@@ -20,6 +20,31 @@ var churchillSpeech = {
     speechesArray = [churchillSpeech, ghandiSpeech, demosthenesSpeech],
     donatePrompt;
 
+/*Create a function that accepts one parameter.  Let's call it "getAuthorAndYearString".
+In this function you should accept one data item from the array and return a string that
+looks like this: This speech was written by [author name] in [speech year].
+
+When you've made your function, set innerHTML equal to the value it returns in the first
+line of each nav button handler by passing in the data item from the speechesArray that
+corresponds to that button.*/
+
+function getAuthorAndYearString(speechInfo) {
+  return 'This speech was written by ' + 
+  speechesArray[speechInfo].author + ' in ' + 
+  speechesArray[speechInfo].year + '.' + '</br>';
+}
+
+/*Create a function called "displayBCEString" that accepts one parameter. We will pass 
+into the function the boolean value for whether each data object in the speechesArray is
+BCE or not.  Inside the function, check if the value of the parameter that pass in is true 
+or not.  Then write a string detailing the result to the #ConsoleDisplay element's innerHTML
+property, just as you did in the conditional inside of each nav button handler.
+
+Replace the conditional code block in your nav button handler with a call to our new function,
+passing in the BCE value for the appropriate data object from speechesArray.*/
+
+function displayBCEString
+
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
   var donationDisplay = document.createElement('h3'),
@@ -46,7 +71,7 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
-  document.getElementById('ConsoleDisplay').innerHTML = 'This speech was written by ' + speechesArray[0].author + ' in ' + speechesArray[0].year + '<br>';
+  document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(0);
 
   if(speechesArray[0].yearIsBCE === true){
     document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place before the common era.<br>';
@@ -76,7 +101,7 @@ document.getElementById('BtnChurchill').addEventListener('click', function(){
 
 document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
-  document.getElementById('ConsoleDisplay').innerHTML = 'This speech was written by ' + speechesArray[1].author + ' in ' + speechesArray[1].year + '<br>';
+  document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(1);
 
   if(speechesArray[1].yearIsBCE === true){
     document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place before the common era.<br>';
@@ -106,7 +131,7 @@ document.getElementById('BtnGhandi').addEventListener('click', function(){
 
 document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Demosthenes" button.
-  document.getElementById('ConsoleDisplay').innerHTML = 'This speech was written by ' + speechesArray[2].author + ' in ' + speechesArray[2].year + '<br>';
+  document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(2);
 
 
   if(speechesArray[2].yearIsBCE === true){
