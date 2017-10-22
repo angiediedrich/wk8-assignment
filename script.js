@@ -51,6 +51,44 @@ function displayBCEString (speechInfo) {
   }
 }
 
+/*Create a fubction called "getOldestOrYoungestString" that accepts a data object. 
+Use the code from your nav button handlers that sets up oldest and newest varaibles,
+runs through the speechesArray fwith a FOR loop, and then checks oldest or newest 
+against the year property of a data object. Make sure you are checking the year
+property of the data object that was passed in as a parameter of the function.
+
+Your function should return a string that either says the data object is the oldest 
+or the most recent.  Be careful to return a string valye for every potential case - 
+the data object passed in to the fucntion may not be either oldest or the youngest.
+
+When your function is ready, use the same approach yoiu did for the author and year 
+to display the resulting string to the user in the innerHTML attribute of the 
+#ConsoleDisplay element.8*/
+
+function getOldestOrYoungestString (speechInfo) {
+  var oldest = speechesArray[0].year,
+      newest = speechesArray[0].year;
+
+
+  for(var i = 0; i < speechesArray.length; i++){
+    if(speechesArray[i].year < oldest){
+      oldest = speechesArray[i].year;
+    }
+    if(speechesArray[i].year > newest){
+      newest = speechesArray[i].year;
+    }
+  }
+
+  if(speechesArray[speechInfo].year === oldest){
+    return 'This is the oldest speech on the page.<br>';
+  }
+  if(speechesArray[speechInfo].year === newest){
+    return 'This is the most recent speech on the page.<br>';
+  }else{
+    return 'This is neither the oldest nor the most recent speech. </br>';
+  }
+}
+
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
   var donationDisplay = document.createElement('h3'),
@@ -79,73 +117,19 @@ document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(0);
   document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(0);
-
-  var oldest = speechesArray[0].year,
-      newest = speechesArray[0].year;
-
-  for(var i = 0; i < speechesArray.length; i++){
-    if(speechesArray[i].year < oldest){
-      oldest = speechesArray[i].year;
-    }
-    if(speechesArray[i].year > newest){
-      newest = speechesArray[i].year;
-    }
-  }
-
-  if(speechesArray[0].year === oldest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the oldest speech on the page.<br>';
-  }
-  if(speechesArray[0].year === newest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the most recent speech on the page.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += getOldestOrYoungestString(0);
 });
 
 document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(1);
   document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(1);
-
-  var oldest = speechesArray[0].year,
-      newest = speechesArray[0].year;
-
-  for(var i = 0; i < speechesArray.length; i++){
-    if(speechesArray[i].year < oldest){
-      oldest = speechesArray[i].year;
-    }
-    if(speechesArray[i].year > newest){
-      newest = speechesArray[i].year;
-    }
-  }
-
-  if(speechesArray[1].year === oldest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the oldest speech on the page.<br>';
-  }
-  if(speechesArray[1].year === newest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the most recent speech on the page.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += getOldestOrYoungestString(1);
 });
 
 document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Demosthenes" button.
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(2);
   document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(2);
-
-  var oldest = speechesArray[0].year,
-      newest = speechesArray[0].year;
-
-  for(var i = 0; i < speechesArray.length; i++){
-    if(speechesArray[i].year < oldest){
-      oldest = speechesArray[i].year;
-    }
-    if(speechesArray[i].year > newest){
-      newest = speechesArray[i].year;
-    }
-  }
-
-  if(speechesArray[2].year === oldest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the oldest speech on the page.<br>';
-  }
-  if(speechesArray[2].year === newest){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This is the most recent speech on the page.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += getOldestOrYoungestString(2);
 });
