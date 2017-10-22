@@ -20,29 +20,15 @@ var churchillSpeech = {
     speechesArray = [churchillSpeech, ghandiSpeech, demosthenesSpeech],
     donatePrompt;
 
-/*Create a function that accepts one parameter.  Let's call it "getAuthorAndYearString".
-In this function you should accept one data item from the array and return a string that
-looks like this: This speech was written by [author name] in [speech year].
-
-When you've made your function, set innerHTML equal to the value it returns in the first
-line of each nav button handler by passing in the data item from the speechesArray that
-corresponds to that button.*/
-
+//function - "getAuthorAndYearString"
 function getAuthorAndYearString(speechInfo) {
   return 'This speech was written by ' + 
   speechesArray[speechInfo].author + ' in ' + 
   speechesArray[speechInfo].year + '.' + '</br>';
 }
 
-/*Create a function called "displayBCEString" that accepts one parameter. We will pass 
-into the function the boolean value for whether each data object in the speechesArray is
-BCE or not.  Inside the function, check if the value of the parameter that pass in is true 
-or not.  Then write a string detailing the result to the #ConsoleDisplay element's innerHTML
-property, just as you did in the conditional inside of each nav button handler.
-
-Replace the conditional code block in your nav button handler with a call to our new function,
-passing in the BCE value for the appropriate data object from speechesArray.*/
-
+//function - "displayBCEString" 
+//boolean value for before or after BCE
 function displayBCEString (speechInfo) {
   if (speechesArray[speechInfo].yearIsBCE === true) {
     return 'This speech took place before the common era. </br>';
@@ -51,20 +37,9 @@ function displayBCEString (speechInfo) {
   }
 }
 
-/*Create a fubction called "getOldestOrYoungestString" that accepts a data object. 
-Use the code from your nav button handlers that sets up oldest and newest varaibles,
-runs through the speechesArray fwith a FOR loop, and then checks oldest or newest 
-against the year property of a data object. Make sure you are checking the year
-property of the data object that was passed in as a parameter of the function.
-
-Your function should return a string that either says the data object is the oldest 
-or the most recent.  Be careful to return a string valye for every potential case - 
-the data object passed in to the fucntion may not be either oldest or the youngest.
-
-When your function is ready, use the same approach yoiu did for the author and year 
-to display the resulting string to the user in the innerHTML attribute of the 
-#ConsoleDisplay element.8*/
-
+//function - "getOldestOrYoungestString"
+//oldest and newest variables for speeches 
+//string to inform whether speech is most recent or oldest speech
 function getOldestOrYoungestString (speechInfo) {
   var oldest = speechesArray[0].year,
       newest = speechesArray[0].year;
