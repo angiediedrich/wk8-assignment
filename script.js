@@ -43,7 +43,13 @@ property, just as you did in the conditional inside of each nav button handler.
 Replace the conditional code block in your nav button handler with a call to our new function,
 passing in the BCE value for the appropriate data object from speechesArray.*/
 
-function displayBCEString
+function displayBCEString (speechInfo) {
+  if (speechesArray[speechInfo].yearIsBCE === true) {
+    return 'This speech took place before the common era. </br>';
+  }else{
+    return 'This speech took place during the common era. </br>';
+  }
+}
 
 document.getElementById('BtnDonate').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Donate" button.
@@ -72,12 +78,7 @@ document.getElementById('BtnDonate').addEventListener('click', function(){
 document.getElementById('BtnChurchill').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Churchill" button.
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(0);
-
-  if(speechesArray[0].yearIsBCE === true){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place before the common era.<br>';
-  }else{
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place during the common era.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(0);
 
   var oldest = speechesArray[0].year,
       newest = speechesArray[0].year;
@@ -102,12 +103,7 @@ document.getElementById('BtnChurchill').addEventListener('click', function(){
 document.getElementById('BtnGhandi').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Ghandi" button.
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(1);
-
-  if(speechesArray[1].yearIsBCE === true){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place before the common era.<br>';
-  }else{
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place during the common era.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(1);
 
   var oldest = speechesArray[0].year,
       newest = speechesArray[0].year;
@@ -132,13 +128,7 @@ document.getElementById('BtnGhandi').addEventListener('click', function(){
 document.getElementById('BtnDemosthenes').addEventListener('click', function(){
   //Code in here executes when the user clicks the "Demosthenes" button.
   document.getElementById('ConsoleDisplay').innerHTML = getAuthorAndYearString(2);
-
-
-  if(speechesArray[2].yearIsBCE === true){
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place before the common era.<br>';
-  }else{
-    document.getElementById('ConsoleDisplay').innerHTML += 'This speech took place during the common era.<br>';
-  }
+  document.getElementById('ConsoleDisplay').innerHTML += displayBCEString(2);
 
   var oldest = speechesArray[0].year,
       newest = speechesArray[0].year;
